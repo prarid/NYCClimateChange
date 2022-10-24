@@ -5,4 +5,3 @@ This independent study analyzes daily temperature data from six NYC weather stat
 This study observed that starting from ~1982 daily temperatures in that decade are generally higher than those for the corresponding day in the base period (positive differences). We are also starting to see a general increase in the number of positive outliers, meaning unsually warm temperatures.
 
 ![Boxplots.png](Boxplots.png)
-![Histograms.png](Histograms.png)
