@@ -37,15 +37,10 @@ While the differences decade over decade are less extreme with this updated base
 
 
 #### References:
-https://www.pnas.org/doi/epdf/10.1073/pnas.1205276109
-
-https://www.climate-lab-book.ac.uk/2016/how-to-quantify-changes-in-climate-extremes-without-inducing-artefacts/
-
-https://www.nytimes.com/interactive/2018/05/03/learning/08WGOITGraphLN.html
-
-https://www.nytimes.com/interactive/2021/climate/extreme-summer-heat.html
-
-https://public.wmo.int/en/our-mandate/climate/wmo-statement-state-of-global-climate
+1. https://www.pnas.org/doi/epdf/10.1073/pnas.1205276109
+2. https://www.nytimes.com/interactive/2018/05/03/learning/08WGOITGraphLN.html
+3. https://www.nytimes.com/interactive/2021/climate/extreme-summer-heat.html
+4. https://public.wmo.int/en/our-mandate/climate/wmo-statement-state-of-global-climate
 
 
 #### Version Control
