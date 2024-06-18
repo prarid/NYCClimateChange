@@ -5,10 +5,9 @@ This independent study analyzes daily temperature data for NYC over a 150+ year 
 
 The data for this study has been obtained from the [National Oceanic and Atmospheric Administration (NOAA) website](https://www.ncei.noaa.gov/cdo-web/). The dataset contains over 150 years of daily temperature data (Jan 1,1870 - Dec 31, 2023) from between 1-32 weather stations that NOAA utilizes for New York City temperature readings. 
 
-Each record is a reading from a particular weather station for a given day. These have been aggregated by using the median values across all stations to calculate a median observed temperature for that day. Note that median has been used instead of a simple average as it is more robust to outliers. Separately, the maximum and minimum observed temperature for each day (across any station) is also retained; this is used later for outlier analysis.
 ##
 ### Module 1: Analysis of Daily Temperature Differences - Comparison Period vs Baseline
-In order to analyze temperature changes, daily observed temperatures were compared to a baseline expected daily temperatures. The Paris Climate Accord uses the pre-industrial period of 1850-1900 as its baseline per [here](https://unfccc.int/process-and-meetings/the-paris-agreement) and [here](https://www.ipcc.ch/sr15/faq/faq-chapter-1/). However, the earliest preindustrial data available for New York City is from 1870. Therefore <b>the baseline period for this study is defined from 1870 to 1903</b>. While this is shorter than the 50 year period utilized in the Paris Climate Accord, generally, a 30year or longer period would suffice as the baseline periodas it is sufficiently long for meaningful statistical analysis, as explained in [this guidance](https://www.ncei.noaa.gov/access/monitoring/dyk/anomalies-vs-temperature) from NOAA. Please refer to the code file for further details data cleaning/aggregation across stations as well as the calculation of baseline period expected temperatures.
+In order to analyze temperature changes, daily observed temperatures were compared to a baseline expected daily temperatures. The Paris Climate Accord uses the pre-industrial period of 1850-1900 as its baseline per [here](https://unfccc.int/process-and-meetings/the-paris-agreement) and [here](https://www.ipcc.ch/sr15/faq/faq-chapter-1/). However, the earliest preindustrial data available for New York City is from 1870. Therefore <b>the baseline period for this study is defined from 1870 to 1903</b>. While this is shorter than the 50 year period utilized in the Paris Climate Accord, generally, a 30year or longer period would suffice as the baseline period as it is sufficiently long for meaningful statistical analysis, as explained in [this guidance](https://www.ncei.noaa.gov/access/monitoring/dyk/anomalies-vs-temperature) from NOAA. Please refer to the code file for further details on data cleaning/aggregation across stations as well as the calculation of baseline period expected temperatures.
 
 <b>The comparison dataset for this study is from 1904 through 2023</b>. The daily temperature for each day in the comparison period are compared to the baseline temperature for that day. For example, the June 1 2022 observed temperature (Observed_T) is compared to the June 1 baseline expected temperature (Expected_T). The distribution of the differences in the observed and expected values is then analyzed; if there has not been a material change in temperatures over the years, the expectation is that these differences should be close to zero.
 ![1904_2023_ComparisonPeriod_Histograms.png](1904_2023_ComparisonPeriod_Histograms.png)
@@ -20,19 +19,22 @@ Each subplot within Figure 1 above, shows the <b>distribution of the differences
 * In the initial decades of the 20th century, this normal distribution appears to be centered at 0, i.e, mean 0 implying on average, no differences with expected daily temperatures. But as we move through the decades, we see the normal distribution moving more to the right, i.e., more positive differences indicating warmer observed temperatures compared to expected.
 * 2011 onwards, the distribution mean is closer to ~2.4 (i.e., on average, temperatures are ~2 times higher than the baseline expected temperature)
 * Over the decades, there is an increase in "extremely large" positive differences, implying significantly warmer temperatures. Further analysis on extreme temperatures is shown in Figure 3.
+
 ##
-### Module 2: Outlier Analysis -Record High/Lo Temperatures outside Baseline High/Lo Record Ranges
+### Module 2: Outlier Analysis -Record High/Low Temperatures outside Baseline High/Lo Record Ranges
 
-Temperature readings extracted for each day also include the daily high and low readings. These daily readings from within the baseline period are aggregated to construct a band of possible expected maximum and minimum daily temperatures. The highest and lowest observed baseline values are utilized instead of the median to create the broadest range of baseline/expected values is created. Please refer to the code file for specifics on the calculation of this range.
+Temperature readings extracted for each day also include the daily high and low readings. These daily readings from within the baseline period are aggregated to construct a band of possible expected maximum and minimum daily temperatures. The highest and lowest observed baseline values are utilized instead of the median to create the broadest range of baseline/expected values is created. Please refer to the code file for specifics on the calculation of this range. Observed high low daily temperatures for each day in the comparison period are then evaluated against this range with values lying outside this range considered outliers for the purposes of this study. 
 
-Observed high low daily temperatures for each day in the comparison period are then evaluated against this range with values lying outside this range considered outliers for the purposes of this study. As shown in Figure 2, through the decades, cooler temperature outliers decrease relative to higher temperature outliers.
+<b>Key Observation: As shown in Figure 2, through the decades, cooler temperature outliers decrease relative to higher temperature outliers.</b>
 ![1904_2023_Outliers.png](1904_2023_Outliers.png)
+
 ##
 ### Module3: Comparisons Against a More Recent Baseline Period</center>
 In the second part of this study, the baseline period was updated to 1950 to 1983. The motivations for using a more recent baseline are twofold: (1) analyses that cover "lived" in periods (either directly or via friends and family) maybe easier to connect with as well as invite introspection and discussion, and (2) it is considered to be a period of relatively stable global temperatures as outlined in the aforementioned [paper](https://www.pnas.org/doi/epdf/10.1073/pnas.1205276109) by Dr. Hansen.
 
-While the differences decade over decade are less extreme with this updated baseline period, the general trends still remain: we still see the obderved vs expected temperature difference distribution moving further to the right decade over decade as shown in Figure 3. Further, the frequency of extremely hot days (>3 std dev. above the mean) is increasing.
+While the differences decade over decade are less extreme with this updated baseline period, the general trends still remain: we still see the observed vs expected temperature difference distribution moving further to the right decade over decade as shown in Figure 3. Further, the frequency of extremely hot days (>3 std dev. above the mean) is increasing.
 ![1984_2023_ComparisonPeriod_Histograms.png](1984_2023_ComparisonPeriod_Histograms.png)
+
 ##
 #### References:
 https://www.pnas.org/doi/epdf/10.1073/pnas.1205276109
@@ -44,6 +46,7 @@ https://www.nytimes.com/interactive/2018/05/03/learning/08WGOITGraphLN.html
 https://www.nytimes.com/interactive/2021/climate/extreme-summer-heat.html
 
 https://public.wmo.int/en/our-mandate/climate/wmo-statement-state-of-global-climate
+
 ##
 #### Version Control
 |Version|Date| Decription |
